@@ -7,10 +7,8 @@
  */
 
 #include <iostream>
-#include <iomanip>
-#include <numeric>
 #include <cmath>
-#include <string>
+#include <numeric>
 #include <filesystem>
 using namespace std;
 namespace fs = std::filesystem;
