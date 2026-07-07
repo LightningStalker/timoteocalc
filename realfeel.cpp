@@ -53,12 +53,12 @@ main(int argc, char * argv[])
         }
 
         /* begin to process */
-        if (T <= 50 && V > 3)
+        if (T <= 50.0 && V > 3.0)
         {
             /* we need the chills */
             FEELS_LIKE = wind_chill(T, V);
-            
-        }else if (T >= 80)
+
+        }else if (T >= 80.0)
         {
             FEELS_LIKE = heat_index(T, RH);
 

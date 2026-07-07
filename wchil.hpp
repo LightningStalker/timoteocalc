@@ -8,7 +8,7 @@ wind_chill(float T, float V)
     float WINDCHILL;
 
     #ifndef _FEELS_LIKE
-    if (T > 50 || V <= 3)
+    if (T > 50.0 || V <= 3.0)
     {
         cerr << endl
              << "  Wind Chill Temperature is only defined for" << endl

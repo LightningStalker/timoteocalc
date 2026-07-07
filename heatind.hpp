@@ -32,14 +32,14 @@ heat_index(float T, float RH)
         c9 * powf(T,  2) * powf(RH, 2),
     };
 
-    if (T >= 80 && RH >= 40)
+    if (T >= 80.0 && RH >= 40.0)
     {
         /* sum up our array */
         HI = accumulate(begin(poly), end(poly), 0.0, plus<float>());
     }else
     {
         /* using simplified formula */
-        HI = 0.5 * (T + 61. + (T - 68.) * 1.2 + RH * 0.094);
+        HI = 0.5 * (T + 61.0 + (T - 68.0) * 1.2 + RH * 0.094);
     }
 
     return HI;

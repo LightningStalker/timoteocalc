@@ -59,14 +59,15 @@ main(int argc, char * argv[])
 
         /* the equations */
         pa = RH /
-            100. * exp(cnstnt['b'] * T /
+            100.0 * exp(cnstnt['b'] * T /
                        (cnstnt['c'] + T)
                        );
         dp = cnstnt['c'] * log(pa) /
             (cnstnt['b'] - log(pa));
 
         /* putout */
-        cout << dp << endl;
+        cout << fixed << setprecision(2)
+             << dp << endl;
 
         /* hæ Timoteo */
     } else
