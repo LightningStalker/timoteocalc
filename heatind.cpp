@@ -1,4 +1,4 @@
-/* compile with $ g++ -Wall -Os -o heatind heatind.cpp
+/* compile with $ g++ -Os -o heatind heatind.cpp
  *
  * ported to C++ from meteocalc by Project Crew™ 7/28/2025
  * tested against "Heat index calculator" of Calculator.net
@@ -24,7 +24,7 @@ usage(string argv0)
         << "  output is heat index in °F" << endl
         << endl
         << "  Usage: " << argv0 << " [°F] [%]" << endl
-        << "  Example: " << argv0 << " 89.16 69.68" << endl
+        << "  Example:  $ " << argv0 << " 89.16 69.68" << endl
         << "  Output should be: 103.26" << endl
         << endl;
 }

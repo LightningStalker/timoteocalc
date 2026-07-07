@@ -1,6 +1,6 @@
-/* Compile with $ g++ -o dewpoint dewpoint.cpp
+/* Compile with $ g++ -o dp2rh dp2rh.cpp
  *
- * ported from meteocalc by Project Crew™ on 7/26/2025
+ * Project Crew™ 7/7/2026
  */
 
 #include <iostream>
@@ -15,19 +15,21 @@ usage(string argv0)
 {
     cerr
         << endl
-        << "  " << argv0 << " needs temp\u00b0C and relative%humidity." << endl
-        << "  output is dew point" << endl
+        << "  Relative humidity from temperature and dew point" << endl
+        << endl
+        << "  " << argv0 << " needs temp\u00b0C and dew point." << endl
+        << "  output is relative%humidity" << endl
         << endl
         << "  Usage: " << argv0 << " [\u00b0C] [%RH]" << endl
-        << "  Example:  $ " << argv0 << " 23.69 77.16" << endl
-        << "  Output should be: 19.45" << endl
+        << "  Example:  $ " << argv0 << " 76.28 65.38" << endl
+        << "  Output should be: 62.40" << endl
         << endl;
 }
 
 int
 main(int argc, char * argv[])
 {
-    float pa, dp, T, RH;
+    float pb, pc, DP, T, rh;
 
     if (argc == 3)
     {
@@ -35,7 +37,7 @@ main(int argc, char * argv[])
         {
             /* shell args passed in */
             T = stod(argv[1]);
-            RH = stod(argv[2]);
+            DP = stod(argv[2]);
         } catch (invalid_argument& e)
         {
             cerr << "error: arguments must be numeric." << endl;
@@ -49,8 +51,6 @@ main(int argc, char * argv[])
         CONSTANTS.insert({ "positive", { { 'b', 17.368 }, { 'c', 238.88 } } });
         CONSTANTS.insert({ "negative", { { 'b', 17.966 }, { 'c', 247.15 } } });
 
-        /* and this.is -> cool */
-
         /* declare working map */
         map<char, float> cnstnt;
 
@@ -58,18 +58,13 @@ main(int argc, char * argv[])
         cnstnt = (T > 0) ? CONSTANTS["positive"] : CONSTANTS["negative"];
 
         /* the equations */
-        pa = RH /
-            100.0 * exp(cnstnt['b'] * T /
-                       (cnstnt['c'] + T)
-                       );
-        dp = cnstnt['c'] * log(pa) /
-            (cnstnt['b'] - log(pa));
+        pb = exp(cnstnt['b'] * DP / (DP + cnstnt['c']));
+        pc = 100.0 * pb * exp(-T * cnstnt['b'] / (cnstnt['c'] + T));
+        rh = pc > 100.0 ? 100.0 : pc;   // can't be more
 
-        /* putout */
+        /* output */
         cout << fixed << setprecision(2)
-             << dp << endl;
-
-        /* hæ Timoteo */
+             << rh << endl;
     } else
     {
         /* declare path and initialize */

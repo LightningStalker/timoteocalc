@@ -8,7 +8,7 @@ RM       := rm
 TEST     := /bin/test
 XARGS    := xargs
 
-CXXFLAGS    := -Wall
+CXXFLAGS    :=
 BASENAMEOPT := -a -s .$(SUFFIX) -z
 ECHOPT      := -e -n
 ERRORMSG    := "Nothing to do!!"

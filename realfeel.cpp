@@ -1,4 +1,4 @@
-/* Compile with $ g++ -Wall -o realfeel realfeel.cpp
+/* Compile with $ g++ -o realfeel realfeel.cpp
  *
  * what feels like temperature is?
  * ported from meteocalc by Project Crew™ on 8/9/2025
@@ -25,7 +25,7 @@ usage(string argv0)
         << "  output is \"feels like\" temperature in °F" << endl
         << endl
         << "  Usage: " << argv0 << " [°F] [%] [MPH]" << endl
-        << "  Example: " << argv0 << " 85.43 68.16 6.8" << endl
+        << "  Example:  $ " << argv0 << " 85.43 68.16 6.8" << endl
         << "  Output should be: 92.97" << endl
         << endl;
 }

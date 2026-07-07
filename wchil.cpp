@@ -1,4 +1,4 @@
-/* Compile with $ g++ -Wall -o wchil wchil.cpp
+/* Compile with $ g++ -o wchil wchil.cpp
  *
  * ported from meteocalc by Project Crew™ on 8/1/2025
  * see https://web.archive.org/web/20110918010232/http://www.weather.gov/os/windchill/index.shtml
@@ -22,7 +22,7 @@ usage(string argv0)
         << "  output is wind chill in °F" << endl
         << endl
         << "  Usage: " << argv0 << " [°F] [MPH]" << endl
-        << "  Example: " << argv0 << " 13.0 4.0" << endl
+        << "  Example:  $ " << argv0 << " 13.0 4.0" << endl
         << "  Output should be: 6.13" << endl
         << endl;
 }
