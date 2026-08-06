@@ -20,7 +20,7 @@ usage(string argv0)
         << "  " << argv0 << " needs temp\u00b0C and dew point." << endl
         << "  output is relative%humidity" << endl
         << endl
-        << "  Usage: " << argv0 << " [\u00b0C] [%RH]" << endl
+        << "  Usage: " << argv0 << " [\u00b0C] [Dewpt]" << endl
         << "  Example:  $ " << argv0 << " 76.28 65.38" << endl
         << "  Output should be: 62.40" << endl
         << endl;
